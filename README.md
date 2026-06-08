@@ -288,6 +288,7 @@ Override CSS variables on the target element or on `.ido-calendar`:
 
 ```css
 #calendar {
+  --font-app: "MODAM", Tahoma, sans-serif;
   --ido-calendar-accent: #00f4b9;
   --ido-calendar-surface: #080b10;
   --ido-calendar-raised: #171d26;
@@ -313,6 +314,5 @@ The smoke test validates the core exports, month grid generation, date movement,
 MIT
 
 <p align="center">
-  Made with 🤍 by Azadiyan<br>
-  <span dir="rtl">ساخته شده با 🤍 توسط آزادیان</span>
+  Made with 🤍 by Azadiyan
 </p>
