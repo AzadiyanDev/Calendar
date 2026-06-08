@@ -1,0 +1,44 @@
+{
+  "name": "ido-calendar",
+  "version": "0.1.0",
+  "description": "A standalone Gregorian/Jalali calendar date picker with no framework dependency.",
+  "type": "module",
+  "main": "./src/ido-calendar.js",
+  "types": "./src/ido-calendar.d.ts",
+  "author": "Azadiyan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AzadiyanDev/Calendar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AzadiyanDev/Calendar/issues"
+  },
+  "homepage": "https://github.com/AzadiyanDev/Calendar#readme",
+  "sideEffects": [
+    "./src/ido-calendar.css"
+  ],
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/ido-calendar.d.ts",
+      "import": "./src/ido-calendar.js"
+    },
+    "./style.css": "./src/ido-calendar.css"
+  },
+  "scripts": {
+    "smoke": "node scripts/smoke-test.mjs"
+  },
+  "keywords": [
+    "calendar",
+    "datepicker",
+    "jalali",
+    "persian-calendar",
+    "gregorian",
+    "vanilla-js"
+  ],
+  "license": "MIT"
+}

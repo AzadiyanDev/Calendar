@@ -1,0 +1,227 @@
+.ido-calendar {
+  --ca: var(--ido-calendar-accent, #00e6f6);
+  --cs: var(--ido-calendar-surface, #05070a);
+  --cr: var(--ido-calendar-raised, #1d232d);
+  --cb: var(--ido-calendar-border, #2a3341);
+  --ct: var(--ido-calendar-text, #f2f5f8);
+  --cm: var(--ido-calendar-muted, #8e9bae);
+  --ce: var(--ido-calendar-error, #ffb4ab);
+  --cg: var(--ido-calendar-bg, #0b0e14);
+  width: 100%;
+  border: 1px solid var(--cb);
+  border-radius: var(--ido-calendar-radius, 22px);
+  background: var(--cs);
+  color: var(--ct);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ido-calendar,
+.ido-calendar * {
+  box-sizing: border-box;
+}
+
+.ido-calendar button {
+  appearance: none;
+  font-family: var(--font-app, system-ui, sans-serif);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ido-calendar button:disabled {
+  cursor: default;
+}
+
+.ido-calendar__header {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) 38px;
+  align-items: center;
+  gap: 8px;
+}
+
+.ido-calendar__nav-button,
+.ido-calendar__period-button,
+.ido-calendar__today-button,
+.ido-calendar__mini-button,
+.ido-calendar__tab,
+.ido-calendar__picker-button,
+.ido-calendar__day-button {
+  border: 1px solid var(--cb);
+  background: var(--cr);
+  color: var(--ct);
+}
+
+.ido-calendar__nav-button,
+.ido-calendar__mini-button {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ido-calendar__period-button {
+  min-width: 0;
+  height: 42px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 12px;
+  font: 800 13px/18px var(--font-app, system-ui, sans-serif);
+}
+
+.ido-calendar__period-title,
+.ido-calendar__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ido-calendar__title {
+  text-align: center;
+  font: 800 13px/18px var(--font-app, system-ui, sans-serif);
+}
+
+.ido-calendar__meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 26px;
+  color: var(--cm);
+  font: 700 11px/14px var(--font-app, system-ui, sans-serif);
+}
+
+.ido-calendar__today-button {
+  min-height: 30px;
+  border-color: color-mix(in srgb, var(--ca) 42%, var(--cb));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ca) 14%, transparent);
+  color: var(--ca);
+  padding: 0 12px;
+  font: 800 11px/14px var(--font-app, system-ui, sans-serif);
+}
+
+.ido-calendar__weekdays,
+.ido-calendar__days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.ido-calendar__weekday {
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cm);
+  font: 700 11px/14px var(--font-app, system-ui, sans-serif);
+}
+
+.ido-calendar__day-button {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  border-color: transparent;
+  border-radius: 999px;
+  font: 800 12px/14px var(--font-app, system-ui, sans-serif);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ido-calendar__panel {
+  border: 1px solid color-mix(in srgb, var(--cb) 72%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--cr) 54%, var(--cs));
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ido-calendar__tabs,
+.ido-calendar__stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.ido-calendar__tab {
+  flex: 1;
+  min-height: 34px;
+  border-radius: 999px;
+  font: 800 11px/14px var(--font-app, system-ui, sans-serif);
+}
+
+.ido-calendar__stepper {
+  min-height: 38px;
+  color: var(--ct);
+  font: 800 13px/18px var(--font-app, system-ui, sans-serif);
+}
+
+.ido-calendar__month-grid,
+.ido-calendar__year-grid {
+  display: grid;
+  gap: 6px;
+}
+
+.ido-calendar__month-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ido-calendar__year-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.ido-calendar__picker-button {
+  min-height: 38px;
+  border-radius: 14px;
+  padding: 0 6px;
+  font: 800 11px/14px var(--font-app, system-ui, sans-serif);
+}
+
+.ido-calendar__day-button.is-muted {
+  opacity: 0.42;
+}
+
+.ido-calendar__day-button.is-hidden {
+  visibility: hidden;
+}
+
+.ido-calendar__day-button.is-today,
+.ido-calendar__period-button[aria-expanded="true"] {
+  border-color: var(--ca);
+}
+
+.ido-calendar__day-button.is-selected,
+.ido-calendar__tab.is-active,
+.ido-calendar__picker-button.is-active {
+  background: var(--ca);
+  color: var(--cg);
+  border-color: var(--ca);
+}
+
+.ido-calendar__day-button.is-holiday:not(.is-selected) {
+  color: var(--ce);
+  border-color: color-mix(in srgb, var(--ce) 32%, transparent);
+}
+
+.ido-calendar__holiday-dot {
+  position: absolute;
+  bottom: 5px;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--ce);
+}
+
+.ido-calendar__day-button.is-selected .ido-calendar__holiday-dot {
+  background: var(--cg);
+}
